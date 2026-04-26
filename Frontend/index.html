@@ -4,19 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My dear music</title>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <section class="miReproductor">
+        
         <div>
             <img src="" alt="portada">
         </div>
+
         <div>
-            <h2 class="titltMusic"></h1>
+            <h2 class="titleMusic"></h2>
             <h2 class="autor"></h2>
         </div>
-        <div>
-            <audio src=""></audio>
+
+        <div class="reproductor-personalizado">
+
+            <audio id="audio"></audio>
+            
+            <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+            </div>
+
+            <div class="controls">
+                <button id="prev">⏮</button>
+                <button id="play" class="play-btn">▶</button>
+                <button id="next">⏭</button>
+            </div>
+
         </div>
+
     </section>
+
+    <script src="app.js"></script>
+
 </body>
 </html>
