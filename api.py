@@ -9,8 +9,8 @@ def init_db():
     cursor = conn.cursor()
     
     cursor.execute("""
-        CREATE TABLE IF NOT EXITS users(
-            id int PRIMARY KEY AUTOINCREMENT,
+        CREATE TABLE IF NOT EXISTS users(
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
             nombre TEXT,
             apellido TEXT,
             telefono TEXT
@@ -75,4 +75,5 @@ def add_user():
     return jsonify({
         "message": "Usuario Agregado correctamente"
     })
-    
+
+init_db()
