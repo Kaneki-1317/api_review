@@ -8,7 +8,8 @@ def get_user():
     users = [
         {"nombre": "Cristian", "apellido": "Mayorga", "telefono": 3150606018},
         {"nombre": "Diego", "apellido": "Diaz", "telefono": 3150606018},
-        {"nombre": "Dayana", "apellido": "Barbosa", "telefono": 3150606018}
+        {"nombre": "Dayana", "apellido": "Barbosa", "telefono": 3150606018},
+        {"nombre": "Sara", "apellido": "Nuñez", "telefono": 3150606018}
     ]
 
     data = {
