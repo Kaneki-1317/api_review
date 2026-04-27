@@ -23,6 +23,3 @@ def get_user():
         json.dumps(data, indent=2),
         mimetype='application/json'
     )
-
-if __name__ == "__main__":
-    app.run(debug=True)
