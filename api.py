@@ -1,29 +1,21 @@
 from flask import Flask, Response, request, jsonify
-import sqlite3
+import mysql.connector
 import json
 
 app = Flask(__name__)
 
-def init_db():
-    conn = sqlite3.connect("users.db")
-    cursor = conn.cursor()
-    
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS users(
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nombre TEXT,
-            apellido TEXT,
-            telefono TEXT
-        )               
-    """)
-
-    conn.commit()
-    conn.close()
+def get_connection():
+    return mysql.connector.connect(
+        host = "localhost",
+        user = "root",
+        password = "Kaneki#G1317",
+        database = "flask_db"
+    )
     
     
 @app.route("/")
 def get_user():
-    conn = sqlite3.connect("users.db")
+    conn = get_connection()
     cursor = conn.cursor()
     
     cursor.execute("SELECT * FROM users")
@@ -58,11 +50,11 @@ def get_user():
 def add_user():
     data = request.get_json()
     
-    conn = sqlite3.connect("users.db")
+    conn = get_connection()
     cursor = conn.cursor()
     
     cursor.execute("""
-        INSERT INTO users (nombre, apellido, telefono) VALUES (?, ?, ?)
+        INSERT INTO users (nombre, apellido, telefono) VALUES (%s, %s, %s)
     """,(
         data["nombre"],
         data["apellido"],
@@ -76,4 +68,3 @@ def add_user():
         "message": "Usuario Agregado correctamente"
     })
 
-init_db()
