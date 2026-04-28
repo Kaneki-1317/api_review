@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 def get_connection():
     return mysql.connector.connect(
-        host="switchback.proxy.rlwy.net",
-        port=30358,
+        host="mysql.railway.internal",
+        port=3306,
         user="root",
         password="TU_PASSWORD",
         database="railway"
