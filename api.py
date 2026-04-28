@@ -9,7 +9,7 @@ def get_connection():
         host="switchback.proxy.rlwy.net",
         port=30358,
         user="root",
-        password="Kaneki#G1317",
+        password="GPVmHkVFvXjLgialsdTEBJjNQHhywMCG",
         database="railway"
     )
     
